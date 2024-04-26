@@ -9,8 +9,15 @@ import sys
 
 
 def fetch_todo_list_progress(employee_id):
-    """
-    extend your Python script to export data in the CSV format
+        """
+    Fetches the TODO list progress for a given employee ID
+    and exports the data in CSV format.
+
+    Args:
+        employee_id (int): The ID of the employee.
+
+    Returns:
+        None
     """
     todos = requests.get(
         f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
