@@ -1,23 +1,28 @@
 #!/usr/bin/python3
-"""
-This script will use the REST API to return information
-about a given employee's TODO list progress.
-"""
+"""Python script that, using this REST API,
+for a given employee ID, returns information
+about his/her TODO list progress."""
+
 import requests
 import sys
 
 
-def TODO_REQUESTS(ID):
+def fetch_todo_list_progress(employee_id):
     """
-    This functionis the same as the previous one but with a different
-    way to get the data using requests
+    Fetches the TODO list progress for a given employee ID.
+
+    Args:
+        employee_id (int): The ID of the employee.
+
+    Returns:
+        None
     """
     todos = requests.get(
-        f"https://jsonplaceholder.typicode.com/todos?userId={ID}"
+        f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     ).json()
     user_info = requests.get(
         f"https://jsonplaceholder.\
-typicode.com/users/{ID}"
+typicode.com/users/{employee_id}"
     ).json()
     completed_tasks = [task["title"] for task in todos if task["completed"]]
     print(
@@ -29,6 +34,6 @@ typicode.com/users/{ID}"
 
 
 if __name__ == "__main__":
-    ID = sys.argv[1]
+    employee_id = sys.argv[1]
 
-    TODO_REQUESTS(ID)
+    fetch_todo_list_progress(employee_id)
