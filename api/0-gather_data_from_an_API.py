@@ -29,13 +29,10 @@ def fetch_todo_list_progress(employee_id):
     print(
         f"Employee {user_info['name']} is done with tasks ({a}/{b}):")
     for task in completed_tasks:
-        print("\t{}".format(task))
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
-        sys.exit(1)
-
     employee_id = sys.argv[1]
+
     fetch_todo_list_progress(employee_id)
