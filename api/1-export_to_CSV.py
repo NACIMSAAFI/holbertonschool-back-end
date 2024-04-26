@@ -9,7 +9,7 @@ import sys
 
 
 def fetch_todo_list_progress(employee_id):
-        """
+    """
     Fetches the TODO list progress for a given employee ID
     and exports the data in CSV format.
 
@@ -31,10 +31,10 @@ typicode.com/users/{employee_id}"
         for todo in todos:
             writer.writerow(
                 [(employee_id), user_info["username"],
-                 todo["completed"], todo["title"]]
+                    todo["completed"], todo["title"]]
             )
 
 
 if __name__ == "__main__":
     employee_id = sys.argv[1]
-    fetch_todo_list_progress(employee_id):
+    fetch_todo_list_progress(employee_id)
