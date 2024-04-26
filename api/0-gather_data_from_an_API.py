@@ -19,15 +19,16 @@ def fetch_todo_list_progress(employee_id):
     """
     todos = requests.get(
         f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
-        ).json()
+    ).json()
     user_info = requests.get(
-        f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-        ).json()
+        f"https://jsonplaceholder.\
+typicode.com/users/{employee_id}"
+    ).json()
     completed_tasks = [task["title"] for task in todos if task["completed"]]
-    a = len(completed_tasks)
-    b = len(todos)
     print(
-        f"Employee {user_info['name']} is done with tasks ({a}/{b}):")
+        f"Employee {user_info['name']} is done with tasks\
+({len(completed_tasks)}/{len(todos)}):"
+    )
     for task in completed_tasks:
         print("\t {}".format(task))
 
